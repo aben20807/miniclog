@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include "../miniclog.h"
+
+int main(int argc, char *argv[])
+{
+    logger_st *l = logger_init();
+    handler_st *h1 = handler_init(stdout, MINICLOG_NOTSET);
+    handler_st *h2 = handler_init(stderr, MINICLOG_NOTSET);
+    add_handler(l, h1);
+    add_handler(l, h2);
+    LOG_INFO(l, "OuO number: %d\n", 42);
+    logger_deinit(l);
+    return 0;
+}
