@@ -11,13 +11,13 @@
 
 #define MINICLOG_BUFFER_SIZE 32
 
-#define MINICLOG_LEVEL_LABELS                  \
-    MINICLOG_LL(MINICLOG_NOTSET = 0, "NOTSET") \
-    MINICLOG_LL(MINICLOG_DEBUG = 10, "DEBUG")  \
-    MINICLOG_LL(MINICLOG_INFO = 20, "INFO")    \
-    MINICLOG_LL(MINICLOG_WARN = 30, "WARN")    \
-    MINICLOG_LL(MINICLOG_ERROR = 40, "ERROR")  \
-    MINICLOG_LL(MINICLOG_FATAL = 50, "FATAL")
+#define MINICLOG_LEVEL_LABELS              \
+    MINICLOG_LL(MINICLOG_NOTSET, "NOTSET") \
+    MINICLOG_LL(MINICLOG_DEBUG, "DEBUG")   \
+    MINICLOG_LL(MINICLOG_INFO, "INFO")     \
+    MINICLOG_LL(MINICLOG_WARN, "WARN")     \
+    MINICLOG_LL(MINICLOG_ERROR, "ERROR")   \
+    MINICLOG_LL(MINICLOG_FATAL, "FATAL")
 
 /* Note: FATAL level will exit with non-zero status (1) */
 
@@ -50,15 +50,17 @@ struct handler_s {
 //   %(func): function name
 //   %(line): line of src file
 //   %(time): log time
+//   %(level): level label
 // For example:
-//   [%(time)] %(file):%(func):%(line):%(message)
+//   [%(time)] [%(level)] %(file):%(func):%(line):%(message)
 
 #define MINICLOG_FORMAT_LABELS            \
     MINICLOG_FL(FL_MESSAGE, "%(message)") \
     MINICLOG_FL(FL_FILE, "%(file)")       \
     MINICLOG_FL(FL_FUNC, "%(func)")       \
     MINICLOG_FL(FL_LINE, "%(line)")       \
-    MINICLOG_FL(FL_TIME, "%(time)")
+    MINICLOG_FL(FL_TIME, "%(time)")       \
+    MINICLOG_FL(FL_LEVEL, "%(level)")
 
 logger_st *logger_init();
 void logger_deinit(logger_st *logger);

@@ -82,6 +82,10 @@ enum { MINICLOG_FORMAT_LABELS };
 static const char *const format_labels[] = {MINICLOG_FORMAT_LABELS};
 #undef MINICLOG_FL
 
+#define MINICLOG_LL(a, b) b,
+static const char *const level_labels[] = {MINICLOG_LEVEL_LABELS};
+#undef MINICLOG_LL
+
 void add_filter(handler_st *handler, filter_ft filter)
 {
     int filters_num = handler->filters_num;
@@ -174,6 +178,9 @@ void logger_printf(logger_st *logger,
                 fprintf(handler->stream, "%s",
                         get_time(buffer, sizeof(buffer)));
                 j += strlen(format_labels[FL_TIME]) - 1;
+            } else if (starts_with(f + j, format_labels[FL_LEVEL])) {
+                fprintf(handler->stream, "%s", level_labels[level]);
+                j += strlen(format_labels[FL_LEVEL]) - 1;
             } else {
                 fprintf(handler->stream, "%c", f[j]);
             }

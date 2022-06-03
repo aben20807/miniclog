@@ -90,7 +90,7 @@ int main(int argc, char *argv[]) {
 
     logger_st* l = logger_init();
     handler_st* h1 = handler_init(stdout, MINICLOG_NOTSET);
-    set_format(h1, "[%(time)] %(file):%(func):%(line):%(message)");
+    set_format(h1, "[%(time)] [%(level)] %(file):%(func):%(line):%(message)");
     add_handler(l, h1);
     LOG_INFO(l, "OuO number: %d\n", 42);
     logger_deinit(l);
@@ -102,5 +102,5 @@ int main(int argc, char *argv[]) {
 $ cd examples
 $ make user_defined_format
 $ ./user_defined_format
-[2022-06-02 16:22:44] user_defined_format.c:main:10:OuO number: 42
+[2022-06-03 14:57:41] [INFO] user_defined_format.c:main:10:OuO number: 42
 ```
