@@ -17,8 +17,9 @@
     MINICLOG_LL(MINICLOG_INFO = 20, "INFO")    \
     MINICLOG_LL(MINICLOG_WARN = 30, "WARN")    \
     MINICLOG_LL(MINICLOG_ERROR = 40, "ERROR")  \
-    MINICLOG_LL(MINICLOG_FATAL = 50,           \
-                "FATAL") /* will exit with non-zero status (1) */
+    MINICLOG_LL(MINICLOG_FATAL = 50, "FATAL")
+
+/* Note: FATAL level will exit with non-zero status (1) */
 
 #define MINICLOG_LL(a, b) a,
 typedef enum { MINICLOG_LEVEL_LABELS } logger_level_et;

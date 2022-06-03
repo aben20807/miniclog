@@ -1,5 +1,5 @@
 CC ?= gcc8
-CFLAGS ?= -Wall -O2 -std=gnu99 -D_GNU_SOURCE
+CFLAGS ?= -Wall -Og -ggdb -std=gnu99 -D_GNU_SOURCE
 
 OBJS := miniclog.o
 deps := $(OBJS:%.o=%.o.d)

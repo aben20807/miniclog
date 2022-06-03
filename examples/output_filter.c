@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     add_handler(l, h1);
     LOG(l, "OuO number 1: %d\n", 42);
     LOG_INFO(l, "OuO number 2: %d\n", 42);
+    LOG_INFO(l, "OuO number 222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222: %d\n", 42);
     logger_deinit(l);
     return 0;
 }

@@ -1,3 +1,8 @@
+# Example exexutables
+examples/file_stream_handler
+examples/output_filter
+examples/user_defined_format
+
 # Prerequisites
 *.d
 
